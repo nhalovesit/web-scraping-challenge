@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+
+            <h2>Latest Mars News</h2>
+            <h4>{{mars.news_title}}</h4>
+            <p>{{mars.news_paragraph}}</p>
+
+        <h2>Featured Mars Image</h2>
+          <img src="{{mars.featured_image}}">
+
+      <h2>Mars Weather</h2>
+       <p>{{mars.weather}}</p>
+
+            <h4>Mars Facts</h4>
+            <aura:unescapedHtml value="{{mars.facts}}"/>
+            InnerHtml = HtmlDecode({{mars.facts}});
+            {{mars.facts}}
+
+
+        <h2 class="text-center">Mars Hemispheres</h2>
+
+
+
+      {% for hemisphere in mars.hemispheres %}
+
+            <img src="{{hemisphere.img_url}}"
+                alt="...">
+                <h3>{{hemisphere.title}}</h3>
+
+      {% endfor %}
+
+</body>
+
+</html>
